@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.blacknikboard.ardwatcher</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/arduino-watcher</string>
+        <string>--device</string>
+        <string>/dev/cu.usbserial-144240</string>
+    </array>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>
