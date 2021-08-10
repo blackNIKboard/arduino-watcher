@@ -110,12 +110,21 @@ func getMemLoad() (string, error) {
 		" " + fmt.Sprintf("%.2f%%", v.UsedPercent), nil
 }
 
+func getCpuLoad() (string, error) {
+	info, err := cpu.Percent(0, false)
+	if err != nil {
+		return " NA", nil
+	}
+
+	return fmt.Sprintf("%.2d", int(info[0])) + "%", nil
+}
+
 func convertToGB(bytes uint64) float64 {
 	return float64(bytes) / (math.Pow(1024, 3))
 }
 
 func parseToSend() (string, error) {
-	maxTemp, err := getMaxTemp()
+	maxTemp, err := getCpuTemp()
 	if err != nil {
 		return "NA", err
 	}
@@ -125,5 +134,10 @@ func parseToSend() (string, error) {
 		return "NA", err
 	}
 
-	return fmt.Sprintf("CPU temp: %s    %s ", maxTemp, memory), nil
+	cpuLoad, err := getCpuLoad()
+	if err != nil {
+		return "NA", err
+	}
+
+	return fmt.Sprintf("%.16s%.16s", "cpu temp: "+maxTemp+" "+cpuLoad, memory), nil
 }
