@@ -12,4 +12,4 @@ WIP about make
 ## Building
 `go build -o arduino-watcher .`
 ## Hardware setup
-WIP
+![Screenshot 2021-08-10 at 11 07 58 AM](https://user-images.githubusercontent.com/18029685/128831636-baca5083-e059-4a23-9290-4f76a737ca06.png)
